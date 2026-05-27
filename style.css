@@ -1,321 +1,342 @@
 /* ============================================================
    VARIABLES & THEME
    ============================================================ */
-   :root {
-    --color-primary:   rgb(0, 110, 255);
-    --color-secondary: rgb(0, 140, 255);
-    --color-tertiary:  rgb(125, 192, 255);
-    --color-bg:        rgba(238, 238, 238, 0.2);
-    --color-muted:     rgb(209, 209, 209);
-    --color-text:      black;
-    --color-surface:   rgb(245, 245, 245);
-    --navbar-height:   70px;
-  }
-  
-  [data-theme="dark"] {
-    --color-bg:      rgb(54, 54, 54);
-    --color-text:    rgb(255, 255, 255);
-    --color-surface: rgb(80, 80, 80);
-    --color-muted:   rgb(80, 80, 80);
-  }
-  
-  /* ============================================================
+:root {
+  --color-primary: rgb(0, 110, 255);
+  --color-secondary: rgb(0, 140, 255);
+  --color-tertiary: rgb(125, 192, 255);
+  --color-bg: rgba(238, 238, 238, 0.2);
+  --color-muted: rgb(209, 209, 209);
+  --color-text: black;
+  --color-surface: rgb(245, 245, 245);
+  --navbar-height: 70px;
+}
+
+[data-theme="dark"] {
+  --color-bg: rgb(54, 54, 54);
+  --color-text: rgb(255, 255, 255);
+  --color-surface: rgb(80, 80, 80);
+  --color-muted: rgb(80, 80, 80);
+}
+
+/* ============================================================
      THEME TRANSITION — applied globally
      ============================================================ */
-  body,
-  section,
-  .navbar,
-  .content,
-  .btn,
-  .card {
-    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
-  }
-  
-  /* ============================================================
+body,
+section,
+.navbar,
+.content,
+.btn,
+.card {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+/* ============================================================
      BASE
      ============================================================ */
-  body {
-    background-color: var(--color-bg) !important;
-    scroll-behavior: smooth;
-  }
-  
-  section {
-    color: var(--color-text);
-  }
-  
-  /* ============================================================
+body {
+  background-color: var(--color-bg) !important;
+  scroll-behavior: smooth;
+}
+
+section {
+  color: var(--color-text);
+}
+
+/* ============================================================
      NAVBAR
      ============================================================ */
-  .navbar {
-    backdrop-filter: blur(20px);
-    min-height: var(--navbar-height);
-    z-index: 1000;
+.navbar {
+  backdrop-filter: blur(20px);
+  min-height: var(--navbar-height);
+  z-index: 1000;
 
-    overflow: visible !important;
-  }
-  
+  overflow: visible !important;
+}
+
+.navbar .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 0;
+}
+
+/* ── Theme toggle & hamburger wrapper ─────────────────────── */
+.theme-wrapper {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+/* ── Nav links (desktop) ──────────────────────────────────── */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.nav-item a {
+  color: var(--color-secondary) !important;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-item a:hover {
+  text-shadow: 0 0 5px var(--color-tertiary), 0 0 15px var(--color-tertiary);
+}
+
+/* ── Hamburger toggler ────────────────────────────────────── */
+.navbar-toggler {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--color-tertiary);
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler:hover {
+  border-color: var(--color-tertiary);
+  background-color: rgba(0, 140, 255, 0.1);
+  border-radius: 50%;
+}
+
+.navbar-toggler:hover .nav-hamburger {
+  stroke: var(--color-secondary);
+}
+
+.nav-hamburger {
+  stroke: var(--color-secondary);
+  transition: stroke 0.3s ease;
+}
+
+/* ── Dropdown nav overlay (mobile) ───────────────────────── */
+@media (max-width: 991.98px) {
   .navbar .container {
-    position: relative;
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
   }
-  
+
   .navbar-brand {
-    position: absolute;
-    left: 0;
+    position: static;
+    order: 1;
   }
-  
-  /* ── Theme toggle & hamburger wrapper ─────────────────────── */
+
   .theme-wrapper {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
+    position: static;
+    transform: none;
+    order: 2;
+    margin-left: auto;
+    margin-right: 10px;
   }
-  
-  /* ── Nav links (desktop) ──────────────────────────────────── */
-  .navbar-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0;
-  }
-  
-  .nav-item a {
-    color: var(--color-secondary) !important;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-  }
-  
-  .nav-item a:hover {
-    text-shadow: 0 0 5px var(--color-tertiary), 0 0 15px var(--color-tertiary);
-  }
-  
-  /* ── Hamburger toggler ────────────────────────────────────── */
+
   .navbar-toggler {
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    border: 1px solid var(--color-tertiary);
-    background: transparent;
-    transition: all 0.3s ease-in-out;
+    margin-left: 12px;
+    order: 3;
   }
-  
-  .navbar-toggler:focus {
-    outline: none;
-    box-shadow: none;
+
+  .navbar-collapse {
+    position: absolute !important;
+    margin-top: 8px;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999 !important;
+    width: 100% !important;
+    background-color: var(--color-bg);
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-top: 1px solid var(--color-muted);
+    padding: 12px 0;
   }
-  
-  .navbar-toggler:hover {
-    border-color: var(--color-tertiary);
-    background-color: rgba(0, 140, 255, 0.1);
-    border-radius: 50%;
-  }
-  
-  .navbar-toggler:hover .nav-hamburger {
-    stroke: var(--color-secondary);
-  }
-  
-  .nav-hamburger {
-    stroke: var(--color-secondary);
-    transition: stroke 0.3s ease;
-  }
-  
-  /* ── Dropdown nav overlay (mobile) ───────────────────────── */
-  @media (max-width: 991.98px) {
-    .navbar .container {
-      flex-wrap: wrap;
-    }
-  
-    .navbar-brand {
-      position: static;
-      order: 1;
-    }
-  
-    .theme-wrapper {
-      position: static;
-      transform: none;
-      order: 2;
-      margin-left: auto;
-      margin-right: 10px;
-    }
-  
-    .navbar-toggler {
-      margin-left: 12px;
-      order: 3;
-    }
-  
-    .navbar-collapse {
-      position: absolute !important;
-      margin-top: 8px;
-      top: 100% !important; 
-      left: 0 !important;
-      right: 0 !important;
-      z-index: 999 !important;
-      width: 100% !important;
-      background-color: var(--color-bg);
-      backdrop-filter: blur(20px) !important;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      border-top: 1px solid var(--color-muted);
-      padding: 12px 0;
-    }
-  }
-  
-  /* ============================================================
+}
+
+/* ============================================================
      DARK THEME 
      ============================================================ */
-  .btn-toggle .icon-sun  { display: none; }
-  .btn-toggle .icon-moon { display: block; color: var(--color-primary); }
-  
-  [data-theme="dark"] .btn-toggle .icon-sun  { display: block; color: #ffca28; }
-  [data-theme="dark"] .btn-toggle .icon-moon { display: none; }
-  
-  /* ============================================================
+.btn-toggle .icon-sun {
+  display: none;
+}
+.btn-toggle .icon-moon {
+  display: block;
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .btn-toggle .icon-sun {
+  display: block;
+  color: #ffca28;
+}
+[data-theme="dark"] .btn-toggle .icon-moon {
+  display: none;
+}
+
+/* ============================================================
      BUTTONS
      ============================================================ */
-  .btn {
-    color: var(--color-secondary);
-    cursor: pointer;
-  }
-  
-  .btn-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 0 !important;
-    border-radius: 50% !important;
-    color: var(--color-secondary) !important;
-    transition: color 0.5s ease, background-color 0.5s ease, transform 0.2s ease;
-  }
-  
-  .btn-toggle:hover {
-    color: white !important;
-    background-color: var(--color-tertiary) !important;
-    transform: scale(1.05);
-  }
-  
-  .btn-play,
-  .btn-reset {
-    color: var(--color-text);
-    background-color: var(--color-secondary);
-    padding: 4px 12px;
-    border-radius: 20px;
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  
-  .btn-card {
-    color: var(--color-secondary);
-  }
-  
-  .btn-close-card {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: none;
-    border: none;
-    color: red;
-    font-size: 24px;
-    font-weight: 600;
-    cursor: pointer;
-    line-height: 1;
-    padding: 4px 6px;
-    z-index: 10;
-    opacity: 0.8;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-  
-  .btn-close-card:hover {
-    transform: scale(1.05);
-    text-shadow: 0 0 5px red, 0 0 15px red;
-    opacity: 1;
-  }
-  
-  /* ============================================================
+.btn {
+  color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  color: var(--color-secondary) !important;
+  transition: color 0.5s ease, background-color 0.5s ease, transform 0.2s ease;
+}
+
+.btn-toggle:hover {
+  color: white !important;
+  background-color: var(--color-tertiary) !important;
+  transform: scale(1.05);
+}
+
+.btn-play,
+.btn-reset {
+  color: var(--color-text);
+  background-color: var(--color-secondary);
+  padding: 4px 12px;
+  border-radius: 20px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn-card {
+  color: var(--color-secondary);
+}
+
+.btn-close-card {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  color: red;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 6px;
+  z-index: 10;
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-close-card:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 5px red, 0 0 15px red;
+  opacity: 1;
+}
+
+/* ============================================================
      CONTENT & CARDS
      ============================================================ */
-  .content {
-    background-color: var(--color-surface) !important;
-  }
+.content {
+  background-color: var(--color-surface) !important;
+}
+
+.card {
+  background-color: var(--color-surface) !important;
+  position: relative;
   
-  .card {
-    background-color: var(--color-surface) !important;
-    position: relative;
-  }
-  
-  .img-wrapper {
-    width: 100%;
-    aspect-ratio: 2 / 3;
-    overflow: hidden;
-  }
-  
-  .card-img-top {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .card-img-top:hover {
-    transform: scale(1.05);
-  }
-  
-  .items-img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .card-checkbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    width: 100%;
-  }
-  
-  .card-checkbox .card {
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .card-checkbox input:checked + .card {
-    border-color: var(--color-secondary);
-    background-color: var(--color-bg) !important;
-  }
-  
-  .checkbox {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* ============================================================
+}
+
+.img-wrapper {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.card-img-top {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card-img-top:hover {
+  transform: scale(1.05);
+}
+
+.items-img {
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card-checkbox {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+}
+
+.card-checkbox .card {
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.card-checkbox input:checked + .card {
+  border-color: var(--color-secondary);
+  background-color: var(--color-bg) !important;
+}
+
+.card-body {
+  position: relative;
+  width: 100%;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* ============================================================
      FORM
      ============================================================ */
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 5px;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-  }
-  
-  .form-group label { width: 100px; }
-  
-  .form-group input {
-    width: 250px;
-    padding: 4px;
-  }
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 5px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.form-group label {
+  width: 100px;
+}
+
+.form-group input {
+  width: 250px;
+  padding: 4px;
+}

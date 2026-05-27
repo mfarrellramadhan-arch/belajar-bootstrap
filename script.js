@@ -1,6 +1,5 @@
 const logo = document.querySelector("a.navbar-brand");
 logo.innerText = "LATIHAN JS";
-logo.style.color = "none";
 
 const judul = document.querySelector("section.a h2");
 judul.innerText = "Selamat Datang di Web Saya";
