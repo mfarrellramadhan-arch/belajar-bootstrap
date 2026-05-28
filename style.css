@@ -50,7 +50,7 @@ section {
   backdrop-filter: blur(20px);
   min-height: var(--navbar-height);
   z-index: 1000;
-  background-color: rgba(54, 54, 54, 0.6;
+  background-color: rgba(54, 54, 54, 0.6);
   overflow: visible !important;
 }
 
