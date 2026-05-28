@@ -50,7 +50,7 @@ section {
   backdrop-filter: blur(20px);
   min-height: var(--navbar-height);
   z-index: 1000;
-
+  background-color: var(--color-bg);
   overflow: visible !important;
 }
 
