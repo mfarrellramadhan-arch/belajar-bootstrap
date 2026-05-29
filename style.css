@@ -2,10 +2,10 @@
    VARIABLES & THEME
    ============================================================ */
 :root {
-  --color-primary: rgb(0, 110, 255);
-  --color-secondary: rgb(0, 140, 255);
+  --color-primary: rgb(0, 140, 255);
+  --color-secondary: rgb(66, 170, 255);
   --color-tertiary: rgb(125, 192, 255);
-  --color-bg: rgba(238, 238, 238);
+  --color-bg: rgb(231, 231, 231);
   --color-muted: rgb(209, 209, 209);
   --color-text: black;
   --color-surface: rgb(245, 245, 245);
@@ -47,10 +47,9 @@ section {
      NAVBAR
      ============================================================ */
 .navbar {
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(40px);
   min-height: var(--navbar-height);
   z-index: 1000;
-  background-color: var(--color-bg)
   overflow: visible !important;
 }
 
@@ -197,13 +196,14 @@ section {
   height: 40px;
   padding: 0 !important;
   border-radius: 50% !important;
+  outline: 1px solid var(--color-primary);
   color: var(--color-secondary) !important;
   transition: color 0.5s ease, background-color 0.5s ease, transform 0.2s ease;
 }
 
 .btn-toggle:hover {
   color: white !important;
-  background-color: var(--color-tertiary) !important;
+  background-color: none !important;
   transform: scale(1.05);
 }
 
@@ -340,3 +340,20 @@ section {
   width: 250px;
   padding: 4px;
 }
+
+.form-group #submit-btn {
+  border-radius: 20px;
+  color: var(--color-text);
+  background-color: var(--color-primary);
+  border: none;
+  outline: var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.form-group #submit-btn:hover {
+  transform: scale(1.05);
+  background-color: var(--color-secondary);
+}
+
+
+
