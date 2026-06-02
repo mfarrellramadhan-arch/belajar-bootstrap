@@ -42,7 +42,23 @@ btn.addEventListener("click", () => {
   }
 });
 
-// Autoclose Nav & Smooth Scroll
+// INTRO PAGE LOAD
+window.addEventListener('load', () => {
+  const textLoad = document.querySelector('.load-text')
+  const pageLoad = document.querySelector('.intro-page')
+
+  setTimeout(() => {
+    textLoad.style.opacity = '1'
+    textLoad.style.transform = 'translateY(0)'
+  }, 300)
+
+  setTimeout(() => {
+    pageLoad.style.top = '-100%'
+
+  }, 1500)
+})
+
+// AUTOCLOSE & SMOOTH SCROLL
 const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 const menuToggle = document.getElementById("navbarNav");
 const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
