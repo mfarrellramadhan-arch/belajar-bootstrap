@@ -53,7 +53,7 @@ window.addEventListener('load', () => {
   }, 300)
 
   setTimeout(() => {
-    pageLoad.style.top = '-100%'
+    pageLoad.style.top = '-110vh'
 
   }, 1500)
 })
