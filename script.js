@@ -44,17 +44,21 @@ btn.addEventListener("click", () => {
 
 // INTRO PAGE LOAD
 window.addEventListener('load', () => {
-  const textLoad = document.querySelector('.load-text')
-  const pageLoad = document.querySelector('.intro-page')
+  const loadText = document.querySelector('.load-text')
+  const loadPage = document.querySelector('.intro-page')
 
   setTimeout(() => {
-    textLoad.style.opacity = '1'
-    textLoad.style.transform = 'translateY(0)'
+    loadText.style.opacity = '1'
+    loadText.style.transform = 'translateY(0)'
   }, 300)
 
   setTimeout(() => {
-    pageLoad.style.top = '-100%'
+    // loadPage.style.top = '-100vh'
+    loadPage.style.transform = 'translateY(-100%)';
 
+    loadPage.addEventListener ('transitionend', () => {
+      loadPage.remove();
+    }, { once: true })
   }, 1500)
 })
 
