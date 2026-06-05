@@ -2,7 +2,6 @@
 
 [![Aplikasi Live](https://img.shields.io/badge/Demo-Live_Preview-success.svg)](#)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.0.2-purple.svg)](https://getbootstrap.com/)
-[![Lisensi](https://img.shields.io/badge/License-MIT-blue.svg)](#)
 
 **Latihan JS** adalah proyek web portofolio personal interaktif bergaya modern-futuristik yang dibangun untuk mengeksplorasi manipulasi DOM (Document Object Model), penanganan *event* JavaScript, serta penyimpanan data lokal menggunakan komponen Bootstrap 5.
 
